@@ -1,5 +1,5 @@
 filetype off
-call pathogen#infect()
+execute pathogen#infect()
 set nocompatible
 set nomodeline
 set modelines=0
@@ -182,7 +182,8 @@ set background=light
         " ⟨
     dig )> 10217
         " ⟩
-" Type `:Clip` to load the current file into the clipboard
+" Type `:Clip` to load the current file into the clipboard. The
+" alternative is to use gg"+yG from normal mode.
     command Clip :!cat % | xclip -sel clip
 
 if has('gui_running')
