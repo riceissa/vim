@@ -1,6 +1,22 @@
 filetype off
-let g:pathogen_disabled = ['vim-autoclose']
+" See
+" http://stackoverflow.com/questions/4261785/temporarily-disable-some-plugins-using-pathogen-in-vim
+" for disabling plugins.
+let g:pathogen_disabled = []
+
+call add(g:pathogen_disabled, 'vim-autoclose')
+
+" Gundo requires at least Vim 7.3
+if v:version < '703' || !has('python')
+    call add(g:pathogen_disabled, 'gundo')
+endif
+
+if !has('python')
+    call add(g:pathogen_disabled, 'ultisnips')
+endif
+
 execute pathogen#infect()
+
 set nocompatible
 set nomodeline
 set modelines=0
