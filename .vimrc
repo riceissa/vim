@@ -1,4 +1,5 @@
 filetype off
+let g:pathogen_disabled = ['vim-autoclose']
 execute pathogen#infect()
 set nocompatible
 set nomodeline
