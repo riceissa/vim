@@ -1,0 +1,56 @@
+##### Custom snippets
+
+#`!v system("sha1sum ".expand("%")."| cut -c 1-40")`
+snippet hash "insert sha1 hash of the current file"
+`!v strpart(system("sha1sum ".expand("%")), 0, 40)`
+endsnippet
+
+snippet yaml "insert yaml header" !b
+---
+layout: default
+title: ${1}
+comments: "${2}"
+disqus-id:
+math: "${3}"
+last-major-revision-date:
+license: "${4:CC-BY}"
+tags: ${5}
+---
+${6}
+endsnippet
+
+snippet sha1 "generate sha1 of current file"
+`!p
+import hashlib
+def hash_file(filepath):
+    sha1 = hashlib.sha1()
+    f = open(filepath, 'rb')
+    try:
+        sha1.update(f.read())
+    finally:
+        f.close()
+    return sha1.hexdigest()
+
+if path:
+    snip.rv = hash_file(path)
+`
+endsnippet
+
+snippet code
+<code>${1}</code>${2}
+endsnippet
+
+snippet ma "in-line math"
+\`\(${1}\)\`${2}
+endsnippet
+
+snippet mad "in-line math, display-style"
+\`\(\displaystyle ${1}\)\`${2}
+endsnippet
+
+snippet mal "display math" b
+\`\[
+${1}
+\]\`
+${2}
+endsnippet
