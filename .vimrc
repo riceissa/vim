@@ -49,10 +49,10 @@ set modelines=0
             endif
         endfunction
         function ToggleRead()
-            if &linebreak ==# "nolinebreak"
-                set linebreak nolist
-            else
+            if &linebreak
                 set nolinebreak list
+            else
+                set linebreak nolist
             endif
         endfunction
         cnoremap <C-v> "+gP
