@@ -12,4 +12,5 @@ To generate helptags, run `call pathogen#helptags()` while using Vim.
 
 Working with submodules is proving to be somewhat challenging.  For
 instance after changing the location of a submodule, one must do `git
-submodule sync` to get everything working again.
+submodule sync` or `git submodule update` to get everything working
+again.
