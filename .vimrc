@@ -105,6 +105,7 @@ set modelines=0
         " nnoremap <silent> <leader>t :NERDTreeToggle<CR>
         nnoremap <leader>u :GundoToggle<CR>
         nnoremap <leader>f :<C-u>Unite file<CR>
+        nnoremap <leader>b :<C-u>UniteWithBufferDir file<CR>
         nnoremap <leader>cd :lcd %:p:h<CR>
             " Change local directory to current file's location
             " directory
