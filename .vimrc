@@ -39,12 +39,16 @@ set modelines=0
     " Leader mappings
         let mapleader=' '
         let localleader = '\\'
+
         " If one has vim-unimpaired, this is just `coh` in normal mode.
             nnoremap <silent> <leader>nh :nohlsearch<CR>
+
         " Again, in vim-unimpaired, this is just `col`.
             nnoremap <silent> <leader>I :set list!<CR>
+
         " And this one is the same as `con`.
             nnoremap <silent> <leader>N :set number!<CR>
+
         function ToggleSyntax()
             " See :h syntax for the code
             if exists("g:syntax_on")
@@ -54,7 +58,9 @@ set modelines=0
             endif
         endfunction
         nnoremap <silent> coy :call ToggleSyntax()<CR>
+
         nnoremap <leader>p :set paste! paste?<CR>
+
         function ToggleSpell()
             " See http://stackoverflow.com/q/23125636/3422337 for more
             " information on how this works
@@ -68,6 +74,8 @@ set modelines=0
                 echom "spelling was off ... turning on; syntax disabled"
             endif
         endfunction
+        nnoremap <leader>sp :call ToggleSpell()<CR>
+
         function ToggleTextWidth()
             if &textwidth ==# 0
                 set textwidth=72
@@ -77,6 +85,8 @@ set modelines=0
                 echom "textwidth is now 0"
             endif
         endfunction
+        nnoremap <leader>T :call ToggleTextWidth()<CR>
+
         function ToggleRead()
             if &linebreak
                 set nolinebreak list
@@ -84,9 +94,9 @@ set modelines=0
                 set linebreak nolist
             endif
         endfunction
-        cnoremap <C-v> "+gP
         nnoremap <leader>R :call ToggleRead()<CR>
-        nnoremap <leader>sp :call ToggleSpell()<CR>
+
+        cnoremap <C-v> "+gP
         "nnoremap <leader>sp :set spell! spell?<CR>
         nnoremap <leader>W :set wrap! wrap?<CR>
         nnoremap <silent> <leader>ev :tabnew $MYVIMRC<CR>
@@ -101,7 +111,6 @@ set modelines=0
         nnoremap <leader>' viw<Esc>a'<Esc>hbi'<Esc>lel
         nnoremap <leader>m i\(<Esc>Ea\)<Esc>
         nnoremap _ :bp<CR>
-        nnoremap <leader>T :call ToggleTextWidth()<CR>
         vnoremap fmt <Esc>:set textwidth=72<CR>gvgq<Esc>:set textwidth=0<CR>
             " Format visually selected region to be up to 72 characters.
             " Possible source of headaches: running this will set the
