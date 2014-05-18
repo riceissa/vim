@@ -39,8 +39,10 @@ set modelines=0
     " Leader mappings
         let mapleader=' '
         let localleader = '\\'
-        nnoremap <silent> <leader>nh :nohlsearch<CR>
-        nnoremap <silent> <leader>I :set list!<CR>
+        " If one has vim-unimpaired, this is just `coh` in normal mode.
+            nnoremap <silent> <leader>nh :nohlsearch<CR>
+        " Again, in vim-unimpaired, this is just `col`.
+            nnoremap <silent> <leader>I :set list!<CR>
         nnoremap <silent> <leader>N :set number!<CR>
         nnoremap <leader>p :set paste! paste?<CR>
         function ToggleSpell()
