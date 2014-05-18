@@ -43,7 +43,17 @@ set modelines=0
             nnoremap <silent> <leader>nh :nohlsearch<CR>
         " Again, in vim-unimpaired, this is just `col`.
             nnoremap <silent> <leader>I :set list!<CR>
-        nnoremap <silent> <leader>N :set number!<CR>
+        " And this one is the same as `con`.
+            nnoremap <silent> <leader>N :set number!<CR>
+        function ToggleSyntax()
+            " See :h syntax for the code
+            if exists("g:syntax_on")
+                syntax off
+            else
+                syntax enable
+            endif
+        endfunction
+        nnoremap <silent> coy :call ToggleSyntax()<CR>
         nnoremap <leader>p :set paste! paste?<CR>
         function ToggleSpell()
             " See http://stackoverflow.com/q/23125636/3422337 for more
