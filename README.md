@@ -14,3 +14,9 @@ Working with submodules is proving to be somewhat challenging.  For
 instance after changing the location of a submodule, one must do `git
 submodule sync` or `git submodule update` to get everything working
 again.
+
+Note for myself: if I later want to push changes to the GitHub
+repository, I must do:
+
+    git remote rm origin
+    git remote add origin git@github.com:riceissa/vim.git
