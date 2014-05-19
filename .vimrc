@@ -119,10 +119,10 @@ set modelines=0
             " Possible source of headaches: running this will set the
             " textwidth to 0 at the end, i.e., it will ignore the
             " original value for textwidth.
-            "let tempwidth = &textwidth
+            let tempwidth = &textwidth
             :set textwidth=72
-            normal gvgq<Esc>
-            "let &textwidth=tempwidth
+            normal gvgq
+            let &textwidth=tempwidth
         endfunction
         vnoremap fmt <Esc>:call FormatText()<CR>
         "vnoremap fmt <Esc>:set textwidth=72<CR>gvgq<Esc>:set textwidth=0<CR>
