@@ -116,16 +116,12 @@ set modelines=0
 
         function FormatText()
             " Format visually selected region to be up to 72 characters.
-            " Possible source of headaches: running this will set the
-            " textwidth to 0 at the end, i.e., it will ignore the
-            " original value for textwidth.
             let tempwidth = &textwidth
             :set textwidth=72
             normal gvgq
             let &textwidth=tempwidth
         endfunction
         vnoremap fmt <Esc>:call FormatText()<CR>
-        "vnoremap fmt <Esc>:set textwidth=72<CR>gvgq<Esc>:set textwidth=0<CR>
 
     " Windows
         nnoremap <C-h> <C-w>h
