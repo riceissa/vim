@@ -25,7 +25,7 @@ set modelines=0
 " File type and syntax
     filetype plugin indent on
     filetype indent off
-    syntax on
+    syntax enable
 " Show invisible characters
     set list listchars=eol:$,extends:>,precedes:<,nbsp:_,tab:>-,trail:@
 " Searching options
@@ -66,7 +66,7 @@ set modelines=0
             " information on how this works
             if &spell
                 set nospell
-                syntax on
+                syntax enable
                 echom "spelling was on ... turning off; syntax enabled"
             else
                 set spell
@@ -113,11 +113,20 @@ set modelines=0
         nnoremap <leader>' viw<Esc>a'<Esc>hbi'<Esc>lel
         nnoremap <leader>m i\(<Esc>Ea\)<Esc>
         nnoremap _ :bp<CR>
-        vnoremap fmt <Esc>:set textwidth=72<CR>gvgq<Esc>:set textwidth=0<CR>
+
+        function FormatText()
             " Format visually selected region to be up to 72 characters.
             " Possible source of headaches: running this will set the
             " textwidth to 0 at the end, i.e., it will ignore the
             " original value for textwidth.
+            "let tempwidth = &textwidth
+            :set textwidth=72
+            normal gvgq<Esc>
+            "let &textwidth=tempwidth
+        endfunction
+        vnoremap fmt <Esc>:call FormatText()<CR>
+        "vnoremap fmt <Esc>:set textwidth=72<CR>gvgq<Esc>:set textwidth=0<CR>
+
     " Windows
         nnoremap <C-h> <C-w>h
         nnoremap <C-j> <C-w>j
