@@ -40,7 +40,7 @@ set modelines=0
         let mapleader=' '
         let localleader = '\\'
 
-        " If one has vim-unimpaired, this is just `coh` in normal mode.
+        " If one has vim-unimpaired, this is just `]oh` in normal mode.
             nnoremap <silent> <leader>nh :nohlsearch<CR>
 
         " Again, in vim-unimpaired, this is just `col`.
