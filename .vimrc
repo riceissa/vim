@@ -192,6 +192,12 @@ set modelines=0
 " Plugins
     " EasyMotion
         let g:EasyMotion_leader_key = '<leader><leader>'
+    " UltiSnips
+        let g:UltiSnipsExpandTrigger="<tab>"
+        let g:UltiSnipsJumpForwardTrigger="<tab>"
+        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+        let g:UltiSnipsSnippetDirectories=["UltiSnips", "UltiSnips-custom-snippets"]
+
 " Abbreviations
     iabbrev adn and
     iabbrev nad and
@@ -217,7 +223,7 @@ set modelines=0
     iabbrev dependece dependence
     iabbrev smae same
     iabbrev THus Thus
-set background=light
+
 " Custom digraphs
     " Use Python's ord("⟨char⟩") for the integer values of the
     " characters.
@@ -231,11 +237,8 @@ set background=light
 " alternative is to use gg"+yG from normal mode.
     command Clip :!cat % | xclip -sel clip
 
+set background=light
 if has('gui_running')
     colorscheme solarized
 endif
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "UltiSnips-custom-snippets"]
