@@ -181,13 +181,7 @@ set modelines=0
         " Interpret `.md` files as Markdown
     augroup filetype_markdown
         autocmd!
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!pandoc -o %:r.html --template=/home/issa/projects/riceissa.bitbucket.org/template.txt --toc --mathjax --variable includemaths=true %<CR><CR>
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader>tm :!pandoc -o %:r.html --template=/home/issa/projects/riceissa.bitbucket.org/template.txt --toc --mathjax --variable includemaths=true %<CR><CR>
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader>nm :!pandoc -o %:r.html --template=/home/issa/projects/riceissa.bitbucket.org/template.txt --mathjax --variable includemaths=true %<CR><CR>
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader>tn :!pandoc -o %:r.html --template=/home/issa/projects/riceissa.bitbucket.org/template.txt --toc %<CR><CR>
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader>nn :!pandoc -o %:r.html --template=/home/issa/projects/riceissa.bitbucket.org/template.txt %<CR><CR>
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader>sm :!pandoc --strict -o %:r.html --template=/home/issa/projects/riceissa.bitbucket.org/simple_markdown_template.txt --toc %<CR><CR>
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader>pp :!pandoc -o %:r.html --template=/home/issa/projects/riceissa.bitbucket.org/simple_markdown_template.txt %<CR><CR>
+        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!pandoc -o %:r.html --toc %<CR><CR>
     augroup END
 " Plugins
     " EasyMotion
