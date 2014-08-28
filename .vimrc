@@ -178,10 +178,12 @@ set modelines=0
     augroup END
 " Markdown options
     au BufNewFile,BufRead *.md set filetype=markdown
+    au BufNewFile,BufRead *.pdc set filetype=markdown
         " Interpret `.md` files as Markdown
     augroup filetype_markdown
         autocmd!
         autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!pandoc -o %:r.html --toc %<CR><CR>
+        autocmd filetype markdown set syntax=pdc
     augroup END
 " Plugins
     " EasyMotion
@@ -230,6 +232,7 @@ set modelines=0
 " Type `:Clip` to load the current file into the clipboard. The
 " alternative is to use gg"+yG from normal mode.
     command Clip :!cat % | xclip -sel clip
+    command CD :cd %:p:h
 
 set background=light
 if has('gui_running')
