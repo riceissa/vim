@@ -177,14 +177,17 @@ set modelines=0
         autocmd filetype tex vnoremap <buffer> <silent> ma <esc>`>a\)<esc>`<i\(<esc>
     augroup END
 " Markdown options
+    " Interpret .md and .pdc files as Markdown
     au BufNewFile,BufRead *.md set filetype=markdown
     au BufNewFile,BufRead *.pdc set filetype=markdown
-        " Interpret `.md` files as Markdown
+    " See http://stackoverflow.com/questions/25829710/vim-how-to-disable-syntax-altogether-for-certain-filetype/25830739
+    au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
         autocmd!
         autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!pandoc -o %:r.html --toc %<CR><CR>
-        autocmd filetype markdown set syntax=pdc
+        "autocmd filetype markdown set syntax=pdc
     augroup END
+
 " Plugins
     " EasyMotion
         let g:EasyMotion_leader_key = '<leader><leader>'
