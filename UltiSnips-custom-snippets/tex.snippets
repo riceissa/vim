@@ -246,7 +246,11 @@ endsnippet
 # For math
 
 snippet |
-\absolute{${1}}${2}
+\abs{${1}}${2}
+endsnippet
+
+snippet abs
+\abs{${1}}${2}
 endsnippet
 
 snippet ma "In-line maths"
@@ -354,9 +358,9 @@ ${2}
 endsnippet
 
 snippet exer "Exercise" b
-\begin{exercise}
-%\label{${1}}
-${2}
+\begin{exercise}[${1}]
+%\label{${2}}
+${3}
 \end{exercise}
 endsnippet
 
@@ -399,4 +403,8 @@ snippet proof "Proof" b
 \begin{proof}
 ${1}
 \end{proof}
+endsnippet
+
+snippet hwsec "Homework section" b
+\hwsec{${1}}${2}
 endsnippet
