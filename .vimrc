@@ -37,6 +37,8 @@ set modelines=0
     set nocindent
     set nosmartindent
     set expandtab shiftwidth=4 softtabstop=4 tabstop=4
+    " Show last line instead of the @ column
+    set display=lastline
 " Custom user mappings
     " Leader mappings
         let mapleader=' '
