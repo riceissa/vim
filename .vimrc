@@ -133,6 +133,8 @@ set modelines=0
         nnoremap _ :bp<CR>
         nnoremap <leader>gw :Gwrite<CR>
         nnoremap <leader>gc :Gcommit<CR>
+        nnoremap <leader>gd :Gdiff<CR>
+        nnoremap <leader>gs :Gstatus<CR>
 
         function FormatText()
             " Format visually selected region to be up to 72 characters.
@@ -204,7 +206,7 @@ set modelines=0
     au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
         autocmd!
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!pandoc -o %:r.html --toc %<CR><CR>
+        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!python generator.py --files %<CR><CR>
         "autocmd filetype markdown set syntax=pdc
     augroup END
 
