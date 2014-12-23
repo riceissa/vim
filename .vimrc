@@ -63,6 +63,20 @@ set modelines=0
 
         nnoremap <leader>p :set paste! paste?<CR>
 
+        function MarkdownFold()
+            " See
+            " http://occasionallycogent.com/post/5222794912/folding-fun-with-vim-and-markdown
+            syntax enable
+            set syntax=markdown
+            set foldmethod=syntax
+            syntax region markdownFold start="^\z(#\+\) " end="\(^#\(\z1#*\)\@!#*[^#]\)\@=" transparent fold
+        endfunction
+        nnoremap <leader>mf :call MarkdownFold()<CR>
+
+        function GoToLastLine()
+            normal G
+        endfunction
+
         function ToggleSpell()
             " See http://stackoverflow.com/q/23125636/3422337 for more
             " information on how this works
@@ -115,6 +129,8 @@ set modelines=0
         nnoremap <leader>' viw<Esc>a'<Esc>hbi'<Esc>lel
         nnoremap <leader>m i\(<Esc>Ea\)<Esc>
         nnoremap _ :bp<CR>
+        nnoremap <leader>gw :Gwrite<CR>
+        nnoremap <leader>gc :Gcommit<CR>
 
         function FormatText()
             " Format visually selected region to be up to 72 characters.
