@@ -79,6 +79,9 @@ set modelines=0
             normal G
         endfunction
 
+        " remember as 'markdown paste'
+        nnoremap <leader>mp :r !xclip -sel clip -t text/html -o \| pandoc -f html -t markdown<CR>
+
         function ToggleSpell()
             " See http://stackoverflow.com/q/23125636/3422337 for more
             " information on how this works
@@ -203,11 +206,11 @@ set modelines=0
     au BufNewFile,BufRead *.md set filetype=markdown
     au BufNewFile,BufRead *.pdc set filetype=markdown
     " See http://stackoverflow.com/questions/25829710/vim-how-to-disable-syntax-altogether-for-certain-filetype/25830739
-    au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
+    "au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
         autocmd!
         autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!python generator.py --files %<CR><CR>
-        "autocmd filetype markdown set syntax=pdc
+        autocmd filetype markdown set syntax=pdc
     augroup END
 
 " Plugins
