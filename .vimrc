@@ -37,6 +37,8 @@ set modelines=0
     set nocindent
     set nosmartindent
     set expandtab shiftwidth=4 softtabstop=4 tabstop=4
+    " Show last line instead of the @ column
+    set display=lastline
 " Custom user mappings
     " Leader mappings
         let mapleader=' '
@@ -62,6 +64,23 @@ set modelines=0
         nnoremap <silent> coy :call ToggleSyntax()<CR>
 
         nnoremap <leader>p :set paste! paste?<CR>
+
+        function MarkdownFold()
+            " See
+            " http://occasionallycogent.com/post/5222794912/folding-fun-with-vim-and-markdown
+            syntax enable
+            set syntax=markdown
+            set foldmethod=syntax
+            syntax region markdownFold start="^\z(#\+\) " end="\(^#\(\z1#*\)\@!#*[^#]\)\@=" transparent fold
+        endfunction
+        nnoremap <leader>mf :call MarkdownFold()<CR>
+
+        function GoToLastLine()
+            normal G
+        endfunction
+
+        " remember as 'markdown paste'
+        nnoremap <leader>mp :r !xclip -sel clip -t text/html -o \| pandoc -f html -t markdown<CR>
 
         function ToggleSpell()
             " See http://stackoverflow.com/q/23125636/3422337 for more
@@ -117,6 +136,10 @@ set modelines=0
         nnoremap <leader>' viw<Esc>a'<Esc>hbi'<Esc>lel
         nnoremap <leader>m i\(<Esc>Ea\)<Esc>
         nnoremap _ :bp<CR>
+        nnoremap <leader>gw :Gwrite<CR>
+        nnoremap <leader>gc :Gcommit<CR>
+        nnoremap <leader>gd :Gdiff<CR>
+        nnoremap <leader>gs :Gstatus<CR>
 
         function FormatText()
             " Format visually selected region to be up to 72 characters.
@@ -185,11 +208,11 @@ set modelines=0
     au BufNewFile,BufRead *.md set filetype=markdown
     au BufNewFile,BufRead *.pdc set filetype=markdown
     " See http://stackoverflow.com/questions/25829710/vim-how-to-disable-syntax-altogether-for-certain-filetype/25830739
-    " au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
+    "au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
         autocmd!
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!pandoc -o %:r.html --toc %<CR><CR>
-        "autocmd filetype markdown set syntax=pdc
+        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!python generator.py --files %<CR><CR>
+        autocmd filetype markdown set syntax=pdc
     augroup END
 
 " Plugins
