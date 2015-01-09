@@ -106,6 +106,8 @@ set modelines=0
         nnoremap <silent> <leader>es :tabnew ~/.vim/bundle/snipmate/snippets/<CR>
         " nnoremap <silent> <leader>t :NERDTreeToggle<CR>
         nnoremap <leader>u :GundoToggle<CR>
+        nnoremap <leader>gw :Gwrite<CR>
+        nnoremap <leader>gc :Gcommit<CR>
         nnoremap <leader>f :<C-u>Unite file<CR>
         nnoremap <leader>b :<C-u>UniteWithBufferDir file<CR>
         nnoremap <leader>cd :lcd %:p:h<CR>
@@ -183,7 +185,7 @@ set modelines=0
     au BufNewFile,BufRead *.md set filetype=markdown
     au BufNewFile,BufRead *.pdc set filetype=markdown
     " See http://stackoverflow.com/questions/25829710/vim-how-to-disable-syntax-altogether-for-certain-filetype/25830739
-    au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
+    " au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
         autocmd!
         autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!pandoc -o %:r.html --toc %<CR><CR>
