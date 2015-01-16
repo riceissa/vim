@@ -31,7 +31,7 @@ set modelines=0
 " Show invisible characters
     set list listchars=eol:$,extends:>,precedes:<,nbsp:_,tab:>-,trail:@
 " Searching options
-    set hlsearch ignorecase incsearch showmatch smartcase
+    set nohlsearch ignorecase incsearch showmatch smartcase
 " Indenting options
     set autoindent
     set nocindent
@@ -211,7 +211,7 @@ set modelines=0
     "au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
         autocmd!
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!python generator.py --files %<CR><CR>
+        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!python generator/generator.py --files %<CR><CR>
         autocmd filetype markdown set syntax=pdc
     augroup END
 
