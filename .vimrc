@@ -31,7 +31,7 @@ set modelines=0
 " Show invisible characters
     set list listchars=eol:$,extends:>,precedes:<,nbsp:_,tab:>-,trail:@
 " Searching options
-    set hlsearch ignorecase incsearch showmatch smartcase
+    set nohlsearch ignorecase incsearch showmatch smartcase
 " Indenting options
     set autoindent
     set nocindent
@@ -125,6 +125,8 @@ set modelines=0
         nnoremap <silent> <leader>es :tabnew ~/.vim/bundle/snipmate/snippets/<CR>
         " nnoremap <silent> <leader>t :NERDTreeToggle<CR>
         nnoremap <leader>u :GundoToggle<CR>
+        nnoremap <leader>gw :Gwrite<CR>
+        nnoremap <leader>gc :Gcommit<CR>
         nnoremap <leader>f :<C-u>Unite file<CR>
         nnoremap <leader>b :<C-u>UniteWithBufferDir file<CR>
         nnoremap <leader>cd :lcd %:p:h<CR>
