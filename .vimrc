@@ -215,6 +215,12 @@ set modelines=0
         autocmd filetype markdown set syntax=pdc
     augroup END
 
+
+" For mutt
+augroup filetype_mutt
+    au BufRead /tmp/mutt-* set textwidth=72
+augroup END
+
 " Plugins
     " EasyMotion
         let g:EasyMotion_leader_key = '<leader><leader>'
