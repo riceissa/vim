@@ -211,7 +211,7 @@ set modelines=0
     "au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
         autocmd!
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!python generator/generator.py --files %<CR><CR>
+        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!python3 generator/generator.py --files %<CR><CR>
         autocmd filetype markdown set syntax=pdc
     augroup END
 
