@@ -275,4 +275,5 @@ if has('gui_running')
     colorscheme solarized
 endif
 
+silent !stty -ixon > /dev/null 2>/dev/null
 source ~/.vim/mswin_extract.vim
