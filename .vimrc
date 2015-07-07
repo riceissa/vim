@@ -117,7 +117,6 @@ set modelines=0
         endfunction
         nnoremap <leader>R :call ToggleRead()<CR>
 
-        cnoremap <C-v> "+gP
         "nnoremap <leader>sp :set spell! spell?<CR>
         nnoremap <leader>W :set wrap! wrap?<CR>
         nnoremap <silent> <leader>ev :tabnew $MYVIMRC<CR>
@@ -176,6 +175,7 @@ set modelines=0
     onoremap p i(
     onoremap in( :<C-u>normal! f(vi(<CR>
     onoremap il( :<C-u>normal! F)vi(<CR>
+
 " Other
     set backspace=indent,eol,start cmdheight=2 encoding=utf-8 gdefault
     set hidden nospell number ruler scrolloff=5 shiftround showcmd
@@ -275,3 +275,4 @@ if has('gui_running')
     colorscheme solarized
 endif
 
+source ~/.vim/mswin_extract.vim
