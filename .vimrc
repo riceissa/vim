@@ -29,7 +29,7 @@ set modelines=0
     filetype indent off
     syntax enable
 " Show invisible characters
-    set list listchars=eol:$,extends:>,precedes:<,nbsp:_,tab:>-,trail:@
+    set list listchars=eol:$,nbsp:_,tab:>-,trail:@
 " Searching options
     set nohlsearch ignorecase incsearch showmatch smartcase
 " Indenting options
@@ -180,7 +180,6 @@ set modelines=0
     set backspace=indent,eol,start cmdheight=2 encoding=utf-8 gdefault
     set hidden nospell number ruler scrolloff=5 shiftround showcmd
     set showmode spellfile=~/.spell.en.add title ttyfast wildmenu wrap
-    set showbreak=…
     augroup paste
         autocmd!
         au InsertLeave * set nopaste
