@@ -6,6 +6,7 @@ let g:pathogen_disabled = []
 
 call add(g:pathogen_disabled, 'vim-autoclose')
 call add(g:pathogen_disabled, 'vim-signature')
+call add(g:pathogen_disabled, 'YouCompleteMe')
 
 " Gundo requires at least Vim 7.3
 if v:version < '703' || !has('python')
