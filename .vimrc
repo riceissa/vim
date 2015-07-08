@@ -180,6 +180,7 @@ set modelines=0
     set backspace=indent,eol,start cmdheight=2 encoding=utf-8 gdefault
     set hidden nospell number ruler scrolloff=5 shiftround showcmd
     set showmode spellfile=~/.spell.en.add title ttyfast wildmenu wrap
+    set showbreak=…
     augroup paste
         autocmd!
         au InsertLeave * set nopaste
