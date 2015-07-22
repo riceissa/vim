@@ -80,6 +80,13 @@ set modelines=0
             normal G
         endfunction
 
+        function PasteLink()
+            let link = @+
+            let command = 'autolink.py ' . link
+            return system(command)
+        endfunction
+        inoremap <C-l> <C-r>=PasteLink()<CR>
+
         " remember as 'markdown paste'
         nnoremap <leader>mp :r !xclip -sel clip -t text/html -o \| pandoc -f html -t markdown<CR>
 
