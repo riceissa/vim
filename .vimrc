@@ -82,7 +82,7 @@ set modelines=0
 
         function PasteLink()
             let link = @+
-            let command = 'autolink.py ' . link
+            let command = 'autolink.py "' . link . '"'
             return system(command)
         endfunction
         inoremap <C-l> <C-r>=PasteLink()<CR>
