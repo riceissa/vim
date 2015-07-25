@@ -70,8 +70,8 @@ set modelines=0
             " See
             " http://occasionallycogent.com/post/5222794912/folding-fun-with-vim-and-markdown
             syntax enable
-            set syntax=markdown
-            set foldmethod=syntax
+            setlocal syntax=pdc
+            setlocal foldmethod=syntax
             syntax region markdownFold start="^\z(#\+\) " end="\(^#\(\z1#*\)\@!#*[^#]\)\@=" transparent fold
         endfunction
         nnoremap <leader>mf :call MarkdownFold()<CR>
@@ -213,20 +213,21 @@ set modelines=0
     augroup END
 " Markdown options
     " Interpret .md and .pdc files as Markdown
-    au BufNewFile,BufRead *.md set filetype=markdown
-    au BufNewFile,BufRead *.pdc set filetype=markdown
+    au BufNewFile,BufRead *.md setlocal filetype=pdc
+    au BufNewFile,BufRead *.pdc setlocal filetype=pdc
     " See http://stackoverflow.com/questions/25829710/vim-how-to-disable-syntax-altogether-for-certain-filetype/25830739
     "au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
         autocmd!
-        autocmd filetype markdown nnoremap <buffer> <silent> <localleader><localleader> :!python3 generator/generator.py --files %<CR><CR>
-        autocmd filetype markdown set syntax=pdc
+        autocmd filetype pdc nnoremap <buffer> <silent> <localleader><localleader> :!python3 generator/generator.py --files %<CR><CR>
+        "autocmd filetype,BufNewFile,BufRead pdc setlocal syntax=pdc
+        autocmd filetype pdc setlocal linebreak nolist
     augroup END
 
 
 " For mutt
 augroup filetype_mutt
-    au BufRead /tmp/mutt-* set textwidth=72
+    au BufRead /tmp/mutt-* setlocal textwidth=72
 augroup END
 
 " Plugins
