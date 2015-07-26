@@ -6,7 +6,7 @@ let g:pathogen_disabled = []
 
 call add(g:pathogen_disabled, 'vim-autoclose')
 call add(g:pathogen_disabled, 'vim-signature')
-call add(g:pathogen_disabled, 'YouCompleteMe')
+"call add(g:pathogen_disabled, 'YouCompleteMe')
 
 " Gundo requires at least Vim 7.3
 if v:version < '703' || !has('python')
@@ -234,9 +234,12 @@ augroup END
     " EasyMotion
         let g:EasyMotion_leader_key = '<leader><leader>'
     " UltiSnips
-        let g:UltiSnipsExpandTrigger="<tab>"
-        let g:UltiSnipsJumpForwardTrigger="<tab>"
-        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+        let g:UltiSnipsExpandTrigger="<C-j>"
+        let g:UltiSnipsJumpForwardTrigger="<C-j>"
+        let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+        "let g:UltiSnipsExpandTrigger="<tab>"
+        "let g:UltiSnipsJumpForwardTrigger="<tab>"
+        "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
         let g:UltiSnipsSnippetDirectories=["UltiSnips", "UltiSnips-custom-snippets"]
 
 " Abbreviations
@@ -286,3 +289,13 @@ endif
 
 silent !stty -ixon > /dev/null 2>/dev/null
 source ~/.vim/mswin_extract.vim
+
+let g:ycm_filetype_blacklist = {
+    \ 'unite' : 1,
+    \ 'markdown' : 1,
+    \ 'text': 1,
+    \ 'notes' : 1,
+    \ 'pdc' : 1,
+    \ 'pandoc' : 1,
+    \ 'mail' : 1,
+    \}
