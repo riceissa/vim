@@ -30,7 +30,7 @@ set modelines=0
     filetype indent off
     syntax enable
 " Show invisible characters
-    set list listchars=eol:$,nbsp:_,tab:>-,trail:@
+    set list listchars=nbsp:_,tab:>-,trail:@
 " Searching options
     set nohlsearch ignorecase incsearch showmatch smartcase
 " Indenting options
@@ -105,10 +105,10 @@ set modelines=0
         endfunction
         nnoremap <leader>sp :call ToggleSpell()<CR>
 
-        function ToggleTextWidth()
+        function ToggleTextWidth(w)
             if &textwidth ==# 0
-                set textwidth=72
-                echom "textwidth is now 72"
+                set textwidth=w
+                echom "textwidth is now " . w
             else
                 set textwidth=0
                 echom "textwidth is now 0"
@@ -148,14 +148,17 @@ set modelines=0
         nnoremap <leader>gd :Gdiff<CR>
         nnoremap <leader>gs :Gstatus<CR>
 
-        function FormatText()
-            " Format visually selected region to be up to 72 characters.
+        function FormatText(width)
+            " Format visually selected region to be up to w characters.
             let tempwidth = &textwidth
-            :set textwidth=72
+            let &textwidth=a:width
             normal gvgq
             let &textwidth=tempwidth
         endfunction
-        vnoremap fmt <Esc>:call FormatText()<CR>
+        vnoremap fms <Esc>:call FormatText(72)<CR>
+        vnoremap fme <Esc>:call FormatText(80)<CR>
+        vnoremap fmt <Esc>:call FormatText(80)<CR>
+        vnoremap fmo <Esc>:call FormatText(100)<CR>
 
     " Windows
         nnoremap <C-h> <C-w>h
@@ -215,6 +218,7 @@ set modelines=0
     " Interpret .md and .pdc files as Markdown
     au BufNewFile,BufRead *.md setlocal filetype=pdc
     au BufNewFile,BufRead *.pdc setlocal filetype=pdc
+    au BufNewFile,BufRead *.page setlocal filetype=pdc
     " See http://stackoverflow.com/questions/25829710/vim-how-to-disable-syntax-altogether-for-certain-filetype/25830739
     "au BufNewFile,BufRead *.markdown,*.md,*.pdc,*.mkdn,*.mkd set filetype=ignored
     augroup filetype_markdown
