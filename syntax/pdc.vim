@@ -236,7 +236,7 @@ syn match pdcDefinitions /:\(\t\|[ ]\{3,}\)/  nextgroup=pdcListItem,pdcCodeBlock
 syn match pdcFootnoteID /\[\^[^\]]\+\]/ nextgroup=pdcFootnoteDef
 
 "   This does not work correctly
-syn region pdcFootnoteDef  start=/:/ end=/^\n\+\(\(\t\+\|[ ]\{4,}\)\S\)\@!/ contained contains=pdcFootnoteDef
+"syn region pdcFootnoteDef  start=/:/ end=/^\n\+\(\(\t\+\|[ ]\{4,}\)\S\)\@!/ contained contains=pdcFootnoteDef
 
 "   Inline footnotes
 syn region pdcFootnoteDef matchgroup=pdcFootnoteID start=/\^\[/ matchgroup=pdcFootnoteID end=/\]/
@@ -275,8 +275,8 @@ syn match pdcNewLine /  $/
 " Highlight groups
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 hi link pdcHeader		Title
-hi link pdcBlockquote	    	Comment
-hi link pdcBlockquote2	    	Comment
+"hi link pdcBlockquote	    	Comment
+"hi link pdcBlockquote2	    	Comment
 
 hi link pdcHTMLComment		Comment
 
@@ -297,7 +297,7 @@ hi link pdcLinkURL		Type
 hi link pdcLinkTitle		Comment
 
 hi link pdcFootnoteID		Identifier
-hi link pdcFootnoteDef		Comment
+"hi link pdcFootnoteDef		Comment
 hi link pandocFootnoteCont 	Error
 
 hi link pdcCodeBlock		String
