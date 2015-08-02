@@ -54,7 +54,7 @@ set modelines=0
         " And this one is the same as `con`.
             nnoremap <silent> <leader>N :set number!<CR>
 
-        function ToggleSyntax()
+        function! ToggleSyntax()
             " See :h syntax for the code
             if exists("g:syntax_on")
                 syntax off
@@ -66,7 +66,7 @@ set modelines=0
 
         nnoremap <leader>p :set paste! paste?<CR>
 
-        function MarkdownFold()
+        function! MarkdownFold()
             " See
             " http://occasionallycogent.com/post/5222794912/folding-fun-with-vim-and-markdown
             syntax enable
@@ -76,11 +76,11 @@ set modelines=0
         endfunction
         nnoremap <leader>mf :call MarkdownFold()<CR>
 
-        function GoToLastLine()
+        function! GoToLastLine()
             normal G
         endfunction
 
-        function PasteLink()
+        function! PasteLink()
             let link = @+
             let command = 'autolink.py "' . link . '"'
             return system(command)
@@ -90,7 +90,7 @@ set modelines=0
         " remember as 'markdown paste'
         nnoremap <leader>mp :r !xclip -sel clip -t text/html -o \| pandoc -f html -t markdown<CR>
 
-        function ToggleSpell()
+        function! ToggleSpell()
             " See http://stackoverflow.com/q/23125636/3422337 for more
             " information on how this works
             if &spell
@@ -105,7 +105,7 @@ set modelines=0
         endfunction
         nnoremap <leader>sp :call ToggleSpell()<CR>
 
-        function ToggleTextWidth(w)
+        function! ToggleTextWidth(w)
             if &textwidth ==# 0
                 set textwidth=w
                 echom "textwidth is now " . w
@@ -116,7 +116,7 @@ set modelines=0
         endfunction
         nnoremap <leader>T :call ToggleTextWidth()<CR>
 
-        function ToggleRead()
+        function! ToggleRead()
             if &linebreak
                 set nolinebreak list
             else
@@ -148,7 +148,7 @@ set modelines=0
         nnoremap <leader>gd :Gdiff<CR>
         nnoremap <leader>gs :Gstatus<CR>
 
-        function FormatText(width)
+        function! FormatText(width)
             " Format visually selected region to be up to w characters.
             let tempwidth = &textwidth
             let &textwidth=a:width
