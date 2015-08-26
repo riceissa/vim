@@ -191,6 +191,7 @@ set modelines=0
     set backspace=indent,eol,start cmdheight=2 encoding=utf-8 gdefault
     set hidden nospell number ruler scrolloff=5 shiftround showcmd
     set showmode spellfile=~/.spell.en.add title ttyfast wildmenu wrap
+    set mouse=a
     augroup paste
         autocmd!
         au InsertLeave * set nopaste
@@ -303,3 +304,6 @@ let g:ycm_filetype_blacklist = {
     \ 'pandoc' : 1,
     \ 'mail' : 1,
     \}
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

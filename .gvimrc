@@ -1,6 +1,6 @@
-set gfn=Source\ Code\ Pro\ Medium\ 11
+set gfn=Source\ Code\ Pro\ Medium\ 10
 colorscheme solarized
-set listchars=eol:¬,nbsp:_,tab:▸\ ,trail:@
+set listchars=nbsp:_,tab:▸\ ,trail:@
 
     " Interpret .md and .pdc files as Markdown
     au BufNewFile,BufRead *.md setlocal filetype=pandoc
