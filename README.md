@@ -1,5 +1,7 @@
 # ~/.vim
 
+*This is old; see <https://github.com/riceissa/dotfiles/> for newer versions.*
+
 ## Installation
 
     git clone git://github.com/riceissa/vim.git ~/.vim
